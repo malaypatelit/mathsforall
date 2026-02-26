@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Editorial by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="./../resources/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+
+					<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+						</ul>
+					</header>
+
+					<!-- Content -->
+					<div id="printableDiv">
+						<h2>Custom Addition Worksheet</h2>
+						<article>
+							<div class="col-12" style="display: flex;">
+								Set of numbers to add:
+
+								<select name="addition-selection" id="addition-selection">
+									<option value="">2 X 2</option>
+									<option value="1">1 X 1</option>
+									<option value="2">2 X 1</option>
+									<option value="3">3 X 2</option>
+									<option value="4">3 X 3</option>
+									<option value="5">4 X 3</option>
+									<option value="6">4 X 4</option>
+								</select>
+							</div>
+								Rows: <input type="number" id="rowCount" value="8" max="8"/>
+								Columns: <input type="number" id="colCount" value="6" max="6"/>
+								<button class="button primary icon solid fa-search" onclick="generateAdditionTable()">Generate Worksheet</button>
+								<button type="button" class="button icon solid fa-download" onclick="printPage()">Print</button>
+								<p></p>
+						</article>
+						<table id="additionTable">
+							<!-- Table content will be dynamically generated here -->
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<!-- Sidebar -->
+			<div id="sidebar">
+				<div class="inner">
+
+					<!-- Search -->
+						<section id="search" class="alt">
+							<form method="post" action="#">
+								<input type="text" name="query" id="query" placeholder="Search" />
+							</form>
+						</section>
+
+					<!-- Menu -->
+						<nav id="menu">
+							<header class="major">
+								<h2>Menu</h2>
+							</header>
+							<ul>
+								<li><a href="index.html">Homepage</a></li>
+								<li><a href="generic.html">Generic</a></li>
+								<li><a href="addition.html">Addition</a></li>
+								<li><a href="elements.html">Elements</a></li>
+								<li>
+									<span class="opener">Submenu</span>
+									<ul>
+										<li><a href="#">Lorem Dolor</a></li>
+										<li><a href="#">Ipsum Adipiscing</a></li>
+										<li><a href="#">Tempus Magna</a></li>
+										<li><a href="#">Feugiat Veroeros</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Etiam Dolore</a></li>
+								<li><a href="#">Adipiscing</a></li>
+								<li>
+									<span class="opener">Another Submenu</span>
+									<ul>
+										<li><a href="#">Lorem Dolor</a></li>
+										<li><a href="#">Ipsum Adipiscing</a></li>
+										<li><a href="#">Tempus Magna</a></li>
+										<li><a href="#">Feugiat Veroeros</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Maximus Erat</a></li>
+								<li><a href="#">Sapien Mauris</a></li>
+								<li><a href="#">Amet Lacinia</a></li>
+							</ul>
+						</nav>
+
+					<!-- Section -->
+						<section>
+							<header class="major">
+								<h2>Ante interdum</h2>
+							</header>
+							<div class="mini-posts">
+								<article>
+									<a href="#" class="image"><img src="./../resources/images/pic07.jpg" alt="" /></a>
+									<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+								</article>
+								<article>
+									<a href="#" class="image"><img src="./../resources/images/pic08.jpg" alt="" /></a>
+									<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+								</article>
+								<article>
+									<a href="#" class="image"><img src="./../resources/images/pic09.jpg" alt="" /></a>
+									<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+								</article>
+							</div>
+							<ul class="actions">
+								<li><a href="#" class="button">More</a></li>
+							</ul>
+						</section>
+
+					<!-- Section -->
+						<section>
+							<header class="major">
+								<h2>Get in touch</h2>
+							</header>
+							<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+							<ul class="contact">
+								<li class="icon solid fa-envelope"><a href="#"><span class="__cf_email__" data-cfemail="81e8efe7eef3ece0f5e8eeefc1f4eff5e8f5ede4e5aff5ede5">[email&#160;protected]</span></a></li>
+								<li class="icon solid fa-phone">(000) 000-0000</li>
+								<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+								Nashville, TN 00000-0000</li>
+							</ul>
+						</section>
+
+					<!-- Footer -->
+						<footer id="footer">
+							<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						</footer>
+
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Scripts -->
+		<script>
+			function generateRandomNumber(min, max) {
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+
+									// <option value="">2 X 2</option>
+									// <option value="1">1 X 1</option>
+									// <option value="2">2 X 1</option>
+									// <option value="3">3 X 2</option>
+									// <option value="4">3 X 3</option>
+									// <option value="5">4 X 3</option>
+									// <option value="6">4 X 4</option>
+			function generateRandomAddition() {
+				const digitSelection = parseInt(document.getElementById('addition-selection').value);
+				if(digitSelection === 1) {
+					const num1 = generateRandomNumber(1, 9);
+					const num2 = generateRandomNumber(1, 9);
+					const result = num1 + num2;
+
+					return {
+						num1,
+						num2,
+						result
+					};
+				}
+				else if(digitSelection === 2) {
+					const num1 = generateRandomNumber(10, 99);
+					const num2 = generateRandomNumber(1, 9);
+					const result = num1 + num2;
+
+					return {
+						num1,
+						num2,
+						result
+					};
+				}
+				else if(digitSelection === 3) {
+					const num1 = generateRandomNumber(100, 999);
+					const num2 = generateRandomNumber(10, 99);
+					const result = num1 + num2;
+
+					return {
+						num1,
+						num2,
+						result
+					};
+				}
+				else if(digitSelection === 4) {
+					const num1 = generateRandomNumber(100, 999);
+					const num2 = generateRandomNumber(100, 999);
+					const result = num1 + num2;
+
+					return {
+						num1,
+						num2,
+						result
+					};
+				}
+				else if(digitSelection === 5) {
+					const num1 = generateRandomNumber(1000, 9999);
+					const num2 = generateRandomNumber(100, 999);
+					const result = num1 + num2;
+
+					return {
+						num1,
+						num2,
+						result
+					};
+				}
+				else if(digitSelection === 6) {
+					const num1 = generateRandomNumber(1000, 9999);
+					const num2 = generateRandomNumber(1000, 9999);
+					const result = num1 + num2;
+
+					return {
+						num1,
+						num2,
+						result
+					};
+				}
+
+				const num1 = generateRandomNumber(10, 99);
+				const num2 = generateRandomNumber(10, 99);
+				const result = num1 + num2;
+
+				return {
+					num1,
+					num2,
+					result
+				};
+			}
+
+			function generateAdditionTable() {
+				const table = document.getElementById('additionTable');
+				
+
+				const rowCount = parseInt(document.getElementById('rowCount').value);
+				const colCount = parseInt(document.getElementById('colCount').value);
+
+				// Clear existing content
+				table.innerHTML = '';
+
+				const thead = document.createElement('thead');
+				
+				const headTr = document.createElement('tr');
+				const headTh = document.createElement('th');
+				headTh.colSpan = colCount;
+				headTh.value = `Custom Addition Worksheet`;
+				headTh.style = "text-align: center; font-size: 20px; visibility: obsolute;";
+				headTr.appendChild(headTh);
+				
+				table.appendChild(thead);
+
+				for (let i = 0; i < rowCount; i++) {
+					const row = document.createElement('tr');
+
+					for (let j = 0; j < colCount; j++) {
+						const addition = generateRandomAddition();
+
+						const cell = document.createElement('td');
+						cell.innerHTML = `
+							&nbsp;&nbsp;&nbsp;${addition.num1}<br>
+							+ ${addition.num2}<br>
+							---------<br>
+							<!--<br> -->
+							<!--${addition.result} -->
+						`;
+
+						row.appendChild(cell);
+					}
+
+					table.appendChild(row);
+				}
+			}
+
+			// Initial generation on page load
+			generateAdditionTable();
+
+			function printPage() {
+				window.print();
+			}
+		</script>
+		<script data-cfasync="false" src="./../resources/scripts/email-decode.min.js"></script><script src="./../resources/scripts/jquery.min.js"></script>
+		<script src="./../resources/scripts/browser.min.js"></script>
+		<script src="./../resources/scripts/breakpoints.min.js"></script>
+		<script src="./../resources/scripts/util.js"></script>
+		<script src="./../resources/scripts/main.js"></script>
+
+	</body>
+</html>
