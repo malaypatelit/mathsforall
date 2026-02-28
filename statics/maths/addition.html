@@ -1,0 +1,235 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Addition Sheets</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../../resources/css/main.css" />
+        <style>
+        /* General table cell layout used across worksheets */
+        #additionTable td, #subtractionTable td, #multiplicationTable td, #divisionTable td {
+          text-align: center;
+          vertical-align: middle;
+          padding: 4px;
+          box-sizing: border-box;
+        }
+
+        @media print {
+          @page { size: A4; margin: 8mm; }
+          body * { visibility: hidden; }
+          #printableDiv, #printableDiv * { visibility: visible; }
+          #printableDiv { position: absolute; left: 0; top: 0; width: 100%; }
+          table { width: 100%; border-collapse: collapse; table-layout: fixed; page-break-inside: auto; }
+          tr { page-break-inside: avoid; page-break-after: auto; }
+          td { border: 1px solid #000; padding: 6px; break-inside: avoid; }
+          h2 { margin: 0 0 6px 0; }
+        }
+        </style>
+    </head>
+    <body class="is-preload">
+
+        <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Main -->
+            <div id="main">
+                <div class="inner">
+
+                    <!-- Header -->
+                    <header id="header">
+                        <a href="../index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+                        <ul class="icons">
+                            <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                            <li><a href="#" class="icon brands fa-snapchat-ghost"><span class="label">Snapchat</span></a></li>
+                            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                            <li><a href="#" class="icon brands fa-medium-m"><span class="label">Medium</span></a></li>
+                        </ul>
+                    </header>
+
+                    <!-- Content -->
+                    <div id="printableDiv">
+                        <h2>Custom Addition Worksheet</h2>
+                        <article>
+                            <div class="col-12" style="display: flex;">
+                                Set of numbers to add:
+
+                                <select name="addition-selection" id="addition-selection">
+                                    <option value="">2 X 2</option>
+                                    <option value="1">1 X 1</option>
+                                    <option value="2">2 X 1</option>
+                                    <option value="3">3 X 2</option>
+                                    <option value="4">3 X 3</option>
+                                    <option value="5">4 X 3</option>
+                                    <option value="6">4 X 4</option>
+                                </select>
+                            </div>
+                                Rows: <input type="number" id="rowCount" value="8" max="8"/>
+                                Columns: <input type="number" id="colCount" value="6" max="6"/>
+                                <button class="button primary icon solid fa-search" onclick="generateAdditionTable()">Generate Worksheet</button>
+                                <button type="button" class="button icon solid fa-download" onclick="printPage()">Print</button>
+                                <p></p>
+                        </article>
+                        <table id="additionTable">
+                            <!-- Table content will be dynamically generated here -->
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div id="sidebar">
+                <div class="inner">
+
+                    <!-- Search -->
+                        <section id="search" class="alt">
+                            <form method="post" action="#">
+                                <input type="text" name="query" id="query" placeholder="Search" />
+                            </form>
+                        </section>
+
+                    <!-- Shared Menu -->
+                        <div id="shared-menu" data-menu-path="../../resources/partials/menu.html"></div>
+
+                    <!-- Section -->
+                        <section>
+                            <header class="major">
+                                <h2>Ante interdum</h2>
+                            </header>
+                            <div class="mini-posts">
+                                <article>
+                                    <a href="#" class="image"><img src="../../resources/images/pic07.jpg" alt="" /></a>
+                                    <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+                                </article>
+                            </div>
+                            <ul class="actions">
+                                <li><a href="#" class="button">More</a></li>
+                            </ul>
+                        </section>
+
+                    <!-- Section -->
+                        <section>
+                            <header class="major">
+                                <h2>Get in touch</h2>
+                            </header>
+                            <p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+                            <ul class="contact">
+                                <li class="icon solid fa-envelope"><a href="#"><span class="__cf_email__">[email protected]</span></a></li>
+                                <li class="icon solid fa-phone">(000) 000-0000</li>
+                                <li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+                                Nashville, TN 00000-0000</li>
+                            </ul>
+                        </section>
+
+                    <!-- Footer -->
+                        <footer id="footer">
+                            <p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+                        </footer>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Scripts -->
+        <script>
+            function generateRandomNumber(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            function generateRandomAddition() {
+                const digitSelection = parseInt(document.getElementById('addition-selection').value);
+                if(digitSelection === 1) {
+                    const num1 = generateRandomNumber(1, 9);
+                    const num2 = generateRandomNumber(1, 9);
+                    const result = num1 + num2;
+
+                    return { num1, num2, result };
+                }
+                else if(digitSelection === 2) {
+                    const num1 = generateRandomNumber(10, 99);
+                    const num2 = generateRandomNumber(1, 9);
+                    const result = num1 + num2;
+
+                    return { num1, num2, result };
+                }
+                else if(digitSelection === 3) {
+                    const num1 = generateRandomNumber(100, 999);
+                    const num2 = generateRandomNumber(10, 99);
+                    const result = num1 + num2;
+
+                    return { num1, num2, result };
+                }
+                else if(digitSelection === 4) {
+                    const num1 = generateRandomNumber(100, 999);
+                    const num2 = generateRandomNumber(100, 999);
+                    const result = num1 + num2;
+
+                    return { num1, num2, result };
+                }
+                else if(digitSelection === 5) {
+                    const num1 = generateRandomNumber(1000, 9999);
+                    const num2 = generateRandomNumber(100, 999);
+                    const result = num1 + num2;
+
+                    return { num1, num2, result };
+                }
+                else if(digitSelection === 6) {
+                    const num1 = generateRandomNumber(1000, 9999);
+                    const num2 = generateRandomNumber(1000, 9999);
+                    const result = num1 + num2;
+
+                    return { num1, num2, result };
+                }
+
+                const num1 = generateRandomNumber(10, 99);
+                const num2 = generateRandomNumber(10, 99);
+                const result = num1 + num2;
+
+                return { num1, num2, result };
+            }
+
+            function generateAdditionTable() {
+                const table = document.getElementById('additionTable');
+                const rowCount = parseInt(document.getElementById('rowCount').value);
+                const colCount = parseInt(document.getElementById('colCount').value);
+                table.innerHTML = '';
+
+                for (let i = 0; i < rowCount; i++) {
+                    const row = document.createElement('tr');
+
+                    for (let j = 0; j < colCount; j++) {
+                        const addition = generateRandomAddition();
+
+                        const cell = document.createElement('td');
+                        cell.innerHTML = `
+                          <div style="width:110px;">
+                            <div style="text-align:right;font-weight:600;">${addition.num1}</div>
+                            <div style="text-align:right;">
+                              <span style="font-weight:600;margin-right:4px;">+</span><span style="font-weight:600;">${addition.num2}</span>
+                            </div>
+                            <div style="text-align:right;">---------</div>
+                          </div>
+                        `;
+
+                        row.appendChild(cell);
+                    }
+
+                    table.appendChild(row);
+                }
+            }
+
+            // Initial generation on page load
+            generateAdditionTable();
+
+            function printPage() { window.print(); }
+        </script>
+        <script src="../../resources/scripts/menu.js"></script>
+        <script data-cfasync="false" src="../../resources/scripts/email-decode.min.js"></script><script src="../../resources/scripts/jquery.min.js"></script>
+        <script src="../../resources/scripts/browser.min.js"></script>
+        <script src="../../resources/scripts/breakpoints.min.js"></script>
+        <script src="../../resources/scripts/util.js"></script>
+        <script src="../../resources/scripts/main.js"></script>
+
+    </body>
+</html>

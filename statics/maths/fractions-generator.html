@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 7 Fraction Practice - 40 Problems</title>
+    <style>
+        /* Base Styles */
+        body { font-family: 'Arial', sans-serif; margin: 0; padding: 15px; color: #333; }
+        .no-print { background: #eef; padding: 10px; border-radius: 5px; margin-bottom: 20px; border: 1px solid #ccc; }
+        
+        /* Header */
+        .header { text-align: center; margin-bottom: 15px; border-bottom: 2px solid #000; padding-bottom: 5px; }
+        .header h2 { margin: 0; font-size: 1.3rem; }
+        .student-info { display: flex; justify-content: space-between; font-size: 0.8rem; margin-top: 10px; }
+
+        /* Grid Layout: 3 Columns */
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            column-gap: 15px; 
+            row-gap: 18px; /* Tightened for 40 questions */
+        }
+
+        /* Problem Styling */
+        .problem { 
+            display: flex; 
+            align-items: center; 
+            font-size: 0.95rem; /* Smaller font to fit 3 columns */
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 5px;
+        }
+        .num { width: 25px; font-weight: bold; font-size: 0.75rem; color: #555; }
+        
+        .math-row { display: flex; align-items: center; }
+        .whole-num { font-size: 1.1rem; margin-right: 3px; }
+        .fraction { display: inline-flex; flex-direction: column; align-items: center; font-size: 0.9rem; }
+        .n { border-bottom: 1px solid #000; padding: 0 3px; }
+        .d { padding: 0 3px; }
+        
+        .equals { margin: 0 6px; }
+        .ans-line { border-bottom: 1px solid #aaa; width: 45px; height: 18px; }
+        
+        .key { color: #c00; font-size: 0.8rem; margin-left: 5px; display: none; font-weight: bold; }
+
+        /* Print Optimization */
+        @media print {
+            .no-print { display: none !important; }
+            body { padding: 0; margin: 0.5cm; }
+            .grid { row-gap: 22px; } /* Slightly more space for handwriting when printing */
+            .problem { border-bottom: 1px solid #f9f9f9; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="wrapper">
+        <div id="main">
+            <div class="inner">
+
+                <!-- <header id="header">
+                    <a href="../index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+                </header> -->
+
+                <div id="printableDiv">
+
+                    <div class="no-print">
+                            <strong>Teacher Controls:</strong>
+                            <button onclick="generate()">Refresh Questions</button>
+                            <button onclick="toggleKey()">Toggle Answer Key</button>
+                            <button onclick="window.print()">Print A4 Sheet</button>
+                            <small style="margin-left: 15px;">Tip: Set "Margins" to "None" or "Minimum" in Print Settings if edges cut off.</small>
+                    </div>
+
+                    <div class="header">
+                            <h2>Multiplying Fractions by Whole Numbers</h2>
+                            <div class="student-info">
+                                    <span>Name: __________________________</span>
+                                    <span>Date: ___________</span>
+                                    <span>Score: ____ / 40</span>
+                            </div>
+                    </div>
+
+                    <div id="mathGrid" class="grid"></div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div id="sidebar">
+            <div class="inner">
+                <section id="search" class="alt">
+                    <form method="post" action="#"><input type="text" name="query" id="query" placeholder="Search" /></form>
+                </section>
+
+                <div id="shared-menu" data-menu-path="../../resources/partials/menu.html"></div>
+
+                <footer id="footer">
+                    <p class="copyright">&copy; Untitled. All rights reserved.</p>
+                </footer>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function getGCD(a, b) { return b ? getGCD(b, a % b) : a; }
+
+        function getResult(w, n, d) {
+            let num = w * n;
+            let den = d;
+            let common = getGCD(num, den);
+            num /= common;
+            den /= common;
+
+            if (den === 1) return num;
+            if (num > den) {
+                let whole = Math.floor(num / den);
+                let rem = num % den;
+                return `${whole} [${rem}/${den}]`; // Mixed number format
+            }
+            return `${num}/${den}`;
+        }
+
+        function generate() {
+            const grid = document.getElementById('mathGrid');
+            grid.innerHTML = '';
+            
+            for (let i = 1; i <= 42; i++) {
+                // Grade 7 Complexity: Whole up to 15, Denom up to 12
+                const w = Math.floor(Math.random() * 14) + 2;
+                const n = Math.floor(Math.random() * 8) + 1;
+                const d = Math.floor(Math.random() * 10) + 3;
+                
+                const answer = getResult(w, n, d);
+
+                grid.innerHTML += `
+                    <div class="problem">
+                        <div class="num">${i}.</div>
+                        <div class="math-row">
+                            <span class="whole-num">${w}</span>
+                            <span style="margin-right:3px;">&times;</span>
+                            <div class="fraction">
+                                <span class="n">${n}</span>
+                                <span class="d">${d}</span>
+                            </div>
+                            <span class="equals">=</span>
+                            <div class="ans-line"></div>
+                            <span class="key">${answer}</span>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function toggleKey() {
+            const keys = document.querySelectorAll('.key');
+            keys.forEach(k => k.style.display = (k.style.display === 'none' || k.style.display === '') ? 'inline' : 'none');
+        }
+
+        generate();
+    </script>
+
+    <script src="../../resources/scripts/menu.js"></script>
+    <script data-cfasync="false" src="../../resources/scripts/email-decode.min.js"></script>
+    <script src="../../resources/scripts/jquery.min.js"></script>
+    <script src="../../resources/scripts/browser.min.js"></script>
+    <script src="../../resources/scripts/breakpoints.min.js"></script>
+    <script src="../../resources/scripts/util.js"></script>
+    <script src="../../resources/scripts/main.js"></script>
+
+</body>
+</html>

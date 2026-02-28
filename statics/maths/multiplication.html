@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Multiplication Sheets</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../../resources/css/main.css" />
+        <style>
+        #additionTable td, #subtractionTable td, #multiplicationTable td, #divisionTable td { text-align:center; vertical-align:middle; padding:4px; box-sizing:border-box; }
+        @media print { @page{size:A4;margin:8mm;} body *{visibility:hidden;} #printableDiv, #printableDiv *{visibility:visible;} #printableDiv{position:absolute;left:0;top:0;width:100%;} table{width:100%;border-collapse:collapse;table-layout:fixed;page-break-inside:auto;} tr{page-break-inside:avoid;page-break-after:auto;} td{border:1px solid #000;padding:6px;break-inside:avoid;} h2{margin:0 0 6px 0;} }
+        </style>
+    </head>
+    <body class="is-preload">
+        <div id="wrapper"><div id="main"><div class="inner">
+            <header id="header"><a href="../index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a></header>
+            <div id="printableDiv">
+                <h2>Custom Multiplication Worksheet</h2>
+                <article>
+                    <div class="col-12" style="display:flex;">Set of numbers to multiply:
+                        <select name="multiplication-selection" id="multiplication-selection"><option value="">2 X 2</option><option value="1">1 X 1</option><option value="2">2 X 1</option><option value="3">3 X 2</option><option value="4">3 X 3</option><option value="5">4 X 3</option><option value="6">4 X 4</option></select>
+                    </div>
+                    Rows: <input type="number" id="rowCount" value="8" max="8"/> Columns: <input type="number" id="colCount" value="6" max="6"/>
+                    <button class="button primary icon solid fa-search" onclick="generateMultiplicationTable()">Generate Worksheet</button>
+                    <button type="button" class="button icon solid fa-download" onclick="printPage()">Print</button>
+                </article>
+                <table id="multiplicationTable"></table>
+            </div>
+        </div></div>
+
+        <div id="sidebar"><div class="inner">
+            <div id="shared-menu" data-menu-path="../../resources/partials/menu.html"></div>
+        </div></div>
+
+        <script>
+            function generateRandomNumber(min,max){return Math.floor(Math.random()*(max-min+1))+min}
+            function generateRandomMultiplication(){const digitSelection=parseInt(document.getElementById('multiplication-selection').value); if(digitSelection===1){const num1=generateRandomNumber(1,9);const num2=generateRandomNumber(1,9);return{num1,num2,result:num1*num2}} if(digitSelection===2){const num1=generateRandomNumber(10,99);const num2=generateRandomNumber(1,9);return{num1,num2,result:num1*num2}} if(digitSelection===3){const num1=generateRandomNumber(100,999);const num2=generateRandomNumber(10,99);return{num1,num2,result:num1*num2}} if(digitSelection===4){const num1=generateRandomNumber(100,999);const num2=generateRandomNumber(100,999);return{num1,num2,result:num1*num2}} if(digitSelection===5){const num1=generateRandomNumber(1000,9999);const num2=generateRandomNumber(100,999);return{num1,num2,result:num1*num2}} if(digitSelection===6){const num1=generateRandomNumber(1000,9999);const num2=generateRandomNumber(1000,9999);return{num1,num2,result:num1*num2}} const num1=generateRandomNumber(10,99);const num2=generateRandomNumber(10,99);return{num1,num2,result:num1*num2}}
+            function generateMultiplicationTable(){const table=document.getElementById('multiplicationTable');const rowCount=parseInt(document.getElementById('rowCount').value);const colCount=parseInt(document.getElementById('colCount').value);table.innerHTML='';for(let i=0;i<rowCount;i++){const row=document.createElement('tr');for(let j=0;j<colCount;j++){const m=generateRandomMultiplication();const cell=document.createElement('td');cell.innerHTML=`<div style="width:110px;"><div style="text-align:right;font-weight:600;">${m.num1}</div><div style="text-align:right;"><span style="font-weight:600;margin-right:4px;">&times;</span><span style="font-weight:600;">${m.num2}</span></div><div style="text-align:right;">---------</div></div>`;row.appendChild(cell);}table.appendChild(row);} }
+            generateMultiplicationTable(); function printPage(){window.print();}
+        </script>
+        <script src="../../resources/scripts/menu.js"></script>
+        <script data-cfasync="false" src="../../resources/scripts/email-decode.min.js"></script><script src="../../resources/scripts/jquery.min.js"></script>
+        <script src="../../resources/scripts/browser.min.js"></script>
+        <script src="../../resources/scripts/breakpoints.min.js"></script>
+        <script src="../../resources/scripts/util.js"></script>
+        <script src="../../resources/scripts/main.js"></script>
+    </body>
+</html>
