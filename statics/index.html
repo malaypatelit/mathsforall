@@ -35,14 +35,13 @@
 							<!-- Banner -->
 								<section id="banner">
 									<div class="content">
-										<header>
-											<h1>Hi, I’m Editorial<br />
-											by HTML5 UP</h1>
-											<p>A free and fully responsive site template</p>
+										<header id="banner-header">
+											<h1>Loading…</h1>
+											<p id="banner-subtitle"></p>
 										</header>
-										<p>Aenean ornare velit lacus, ac varius enim ullamcorper eu. Proin aliquam facilisis ante interdum congue. Integer mollis, nisl amet convallis, porttitor magna ullamcorper, amet egestas mauris. Ut magna finibus nisi nec lacinia. Nam maximus erat id euismod egestas. Pellentesque sapien ac quam. Lorem ipsum dolor sit nullam.</p>
+										<p id="banner-copy">Loading content…</p>
 										<ul class="actions">
-											<li><a href="#" class="button big">Learn More</a></li>
+											<li><a href="#" class="button big" id="banner-action">Learn More</a></li>
 										</ul>
 									</div>
 									<span class="image object">
@@ -55,7 +54,7 @@
 									<header class="major">
 										<h2>Erat lacinia</h2>
 									</header>
-									<div class="features">
+									<div class="features" id="features">
 										<article>
 											<span class="icon fa-gem"></span>
 											<div class="content">
@@ -92,7 +91,7 @@
 									<header class="major">
 										<h2>Ipsum sed dolor</h2>
 									</header>
-									<div class="posts">
+									<div class="posts" id="posts">
 										<article>
 											<a href="#" class="image"><img src="./../resources/images/pic01.jpg" alt="" /></a>
 											<h3>Interdum aenean</h3>
@@ -164,33 +163,37 @@
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="index.html">Homepage</a></li>
-										<li><a href="generic.html">Generic</a></li>
-										<li><a href="addition.html">Addition</a></li>
-										<li><a href="elements.html">Elements</a></li>
 										<li>
-											<span class="opener">Submenu</span>
+											<span class="opener">Maths</span>
 											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
+												<li><a href="maths/addition.html">Addition</a></li>
+												<li><a href="maths/subtraction.html">Subtraction</a></li>
+												<li><a href="maths/multiplication.html">Multiplication</a></li>
+												<li><a href="maths/division.html">Division</a></li>
+												<li><a href="maths/fractions-generator.html">Fractions Generator</a></li>
 											</ul>
 										</li>
-										<li><a href="#">Etiam Dolore</a></li>
-										<li><a href="#">Adipiscing</a></li>
 										<li>
-											<span class="opener">Another Submenu</span>
+											<span class="opener">Science</span>
 											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
+												<li><a href="science/grade1.html">Grade 1</a></li>
+												<li><a href="science/grade2.html">Grade 2</a></li>
+												<li><a href="science/grade3.html">Grade 3</a></li>
+												<li><a href="science/grade4.html">Grade 4</a></li>
+												<li><a href="science/grade5.html">Grade 5</a></li>
+												<li><a href="science/grade6.html">Grade 6</a></li>
+												<li><a href="science/grade7.html">Grade 7</a></li>
+												<li><a href="science/grade8.html">Grade 8</a></li>
 											</ul>
 										</li>
-										<li><a href="#">Maximus Erat</a></li>
-										<li><a href="#">Sapien Mauris</a></li>
-										<li><a href="#">Amet Lacinia</a></li>
+										<li>
+											<span class="opener">More</span>
+											<ul>
+												<li><a href="coming-soon.html">Worksheets (coming soon)</a></li>
+												<li><a href="coming-soon.html">Interactive Games (coming soon)</a></li>
+												<li><a href="coming-soon.html">Teacher Resources (coming soon)</a></li>
+											</ul>
+										</li>
 									</ul>
 								</nav>
 
@@ -234,7 +237,7 @@
 
 							<!-- Footer -->
 								<footer id="footer">
-									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+									<p class="copyright">&copy; <span id="site-author">Loading</span>. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 								</footer>
 
 						</div>
@@ -248,6 +251,61 @@
 			<script src="./../resources/scripts/breakpoints.min.js"></script>
 			<script src="./../resources/scripts/util.js"></script>
 			<script src="./../resources/scripts/main.js"></script>
+
+			<script>
+			(async function(){
+			  const fallback = {
+			    siteTitle: 'MathsForYou',
+			    author: 'Education lover',
+			    banner: { title: 'Hi — Welcome to MathsForYou', subtitle: 'Free printable worksheets and friendly practice to help learners thrive.' },
+			    features: [
+			      { icon: 'icon fa-gem', title: 'Printable Worksheets', desc: 'Curated, printable worksheets covering fundamentals and topic packs.' },
+			      { icon: 'icon solid fa-paper-plane', title: 'Practice Activities', desc: 'Short, focused activities for classroom or home practice.' },
+			      { icon: 'icon solid fa-rocket', title: 'Progressive Difficulty', desc: 'Resources graded for steady progress across year groups.' },
+			      { icon: 'icon solid fa-signal', title: 'Teacher Resources', desc: 'Answer sheets and simple guides to support classroom use.' }
+			    ],
+			    posts: [
+			      { title: 'Addition Worksheets', image: './../resources/images/pic01.jpg', excerpt: 'Generate custom addition worksheets for different digit lengths and layouts.', link: 'maths/addition.html' },
+			      { title: 'Multiplication Practice', image: './../resources/images/pic02.jpg', excerpt: 'Printable grids and drills to practice multiplication facts and strategies.', link: 'maths/multiplication.html' },
+			      { title: 'Fractions Generator', image: './../resources/images/pic03.jpg', excerpt: 'Create fraction questions suitable for introducing equivalence, addition and subtraction.', link: 'maths/fractions-generator.html' }
+			    ]
+			  };
+			  let data = null;
+			  try{
+			    const res = await fetch('../resources/data/site.json');
+			    if(res.ok) data = await res.json(); else data = fallback;
+			  }catch(e){ data = (window.__INLINE_SITE_DATA || fallback); }
+
+			  // Banner
+			  const bannerHeader = document.getElementById('banner-header');
+			  if(bannerHeader){
+			    bannerHeader.innerHTML = '<h1>'+ (data.banner.title || '') +'</h1>';
+			    const subtitle = document.getElementById('banner-subtitle');
+			    if(subtitle) subtitle.textContent = data.banner.subtitle || '';
+			  }
+			  const bannerCopy = document.getElementById('banner-copy');
+			  if(bannerCopy) bannerCopy.textContent = data.banner.copy || '';
+
+			  // Features
+			  const featuresEl = document.getElementById('features');
+			  if(featuresEl && Array.isArray(data.features)){
+			    featuresEl.innerHTML = data.features.map(f=>{
+			      return '<article><span class="'+(f.icon||'icon')+'"></span><div class="content"><h3>'+f.title+'</h3><p>'+f.desc+'</p></div></article>'
+			    }).join('');
+			  }
+
+			  // Posts
+			  const postsEl = document.getElementById('posts');
+			  if(postsEl && Array.isArray(data.posts)){
+			    postsEl.innerHTML = data.posts.map(p=>{
+			      return '<article><a href="'+(p.link||'#')+'" class="image"><img src="'+(p.image||'')+'" alt="" /></a><h3>'+p.title+'</h3><p>'+p.excerpt+'</p><ul class="actions"><li><a href="'+(p.link||'#')+'" class="button">More</a></li></ul></article>'
+			    }).join('');
+			  }
+
+			  const authorEl = document.getElementById('site-author');
+			  if(authorEl) authorEl.textContent = data.author || '';
+			})();
+			</script>
 
 	</body>
 </html>
