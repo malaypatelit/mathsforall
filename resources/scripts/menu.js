@@ -37,10 +37,12 @@
   }
   function adjustLinks(root){
     var anchors = root.querySelectorAll('a[href]');
-    // Determine site base (handles GitHub Pages repo base like /owner/repo)
-    var base = (location.pathname.split('/statics/')[0] || '');
-    // remove trailing slash unless base is just empty
-    if(base.length > 1 && base.endsWith('/')) base = base.slice(0, -1);
+    // Determine site base (handles GitHub Pages repo base like /repo)
+    var segments = location.pathname.split('/').filter(function(s){ return s.length>0; });
+    var base = '';
+    if(segments.length > 0 && segments[0] !== 'statics' && segments[0] !== 'resources'){
+      base = '/' + segments[0];
+    }
 
     anchors.forEach(function(a){
       var h = a.getAttribute('href');
