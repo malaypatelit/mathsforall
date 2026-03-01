@@ -37,14 +37,29 @@
   }
   function adjustLinks(root){
     var anchors = root.querySelectorAll('a[href]');
+    // Determine site base (handles GitHub Pages repo base like /owner/repo)
+    var base = (location.pathname.split('/statics/')[0] || '');
+    // remove trailing slash unless base is just empty
+    if(base.length > 1 && base.endsWith('/')) base = base.slice(0, -1);
+
     anchors.forEach(function(a){
       var h = a.getAttribute('href');
       if(!h) return;
-      // Skip absolute URLs, fragments, and root-absolute paths
-      if(h.indexOf('http')===0 || h.indexOf('#')===0 || h.indexOf('/')===0) return;
-      // Normalize to server-root absolute under /statics/
-      // e.g. 'maths/multiplication.html' -> '/statics/maths/multiplication.html'
-      a.setAttribute('href', '/statics/' + h);
+      // Skip absolute URLs and fragments
+      if(h.indexOf('http')===0 || h.indexOf('#')===0) return;
+
+      if(h.indexOf('/')===0){
+        // root-absolute paths (e.g. '/statics/...') should be prefixed with base
+        if(h.indexOf('/statics/')===0){
+          a.setAttribute('href', (base || '') + h);
+        }
+        // otherwise leave other root paths untouched
+        return;
+      }
+
+      // Relative path -> make it absolute under /statics/ with base prefix
+      var rel = h.replace(/^\/+/, '');
+      a.setAttribute('href', (base || '') + '/statics/' + rel);
     });
   }
   function markCurrentLink(root){
