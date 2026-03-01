@@ -12,7 +12,7 @@
     </head>
     <body class="is-preload">
         <div id="wrapper"><div id="main"><div class="inner">
-            <header id="header"><a href="../index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a></header>
+            <header id="header"><a href="../index.html" class="logo"><strong>Multiplication</strong> Worksheets</a></header>
             <div id="printableDiv">
                 <h2>Custom Multiplication Worksheet</h2>
                 <article>
@@ -27,8 +27,12 @@
             </div>
         </div></div>
 
-        <div id="sidebar"><div class="inner">
+            <div id="sidebar"><div class="inner">
             <div id="shared-menu" data-menu-path="../../resources/partials/menu.html"></div>
+            <section>
+                <header class="major"><h2>Related Resources</h2></header>
+                <div class="mini-posts" id="related-posts"><!-- injected --></div>
+            </section>
         </div></div>
 
         <script>
@@ -43,5 +47,22 @@
         <script src="../../resources/scripts/breakpoints.min.js"></script>
         <script src="../../resources/scripts/util.js"></script>
         <script src="../../resources/scripts/main.js"></script>
+
+                <script>
+                (async function(){
+                    try{
+                        const res = await fetch('../../resources/data/site.json');
+                        const data = res.ok ? await res.json() : (window.__INLINE_SITE_DATA || null);
+                        const posts = (data && data.posts) || [];
+                        const keyword = 'multiplication';
+                        const matches = posts.filter(p => (p.link && p.link.includes(keyword)) || (p.title && p.title.toLowerCase().includes(keyword)));
+                        const list = matches.length ? matches : posts.slice(0,2);
+                        const container = document.getElementById('related-posts');
+                        if(container){
+                            container.innerHTML = list.map(p=>`<article><a href="${p.link||'#'}" class="image"><img src="${p.image||'../../resources/images/pic07.jpg'}" alt=""/></a><p>${p.excerpt||''}</p></article>`).join('');
+                        }
+                    }catch(e){}
+                })();
+                </script>
     </body>
 </html>

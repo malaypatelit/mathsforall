@@ -1,0 +1,19 @@
+{
+  "siteTitle": "MathsForYou",
+  "author": "Education lover",
+  "banner": {
+    "title": "Hi — Welcome to MathsForYou",
+    "subtitle": "Free printable worksheets and friendly practice to help learners thrive."
+  },
+  "features": [
+    { "icon": "icon fa-gem", "title": "Printable Worksheets", "desc": "Curated, printable worksheets covering fundamentals and topic packs." },
+    { "icon": "icon solid fa-paper-plane", "title": "Practice Activities", "desc": "Short, focused activities for classroom or home practice." },
+    { "icon": "icon solid fa-rocket", "title": "Progressive Difficulty", "desc": "Resources graded for steady progress across year groups." },
+    { "icon": "icon solid fa-signal", "title": "Teacher Resources", "desc": "Answer sheets and simple guides to support classroom use." }
+  ],
+  "posts": [
+    { "title": "Addition Worksheets", "image": "./../resources/images/pic01.jpg", "excerpt": "Generate custom addition worksheets for different digit lengths and layouts.", "link": "maths/addition.html" },
+    { "title": "Multiplication Practice", "image": "./../resources/images/pic02.jpg", "excerpt": "Printable grids and drills to practice multiplication facts and strategies.", "link": "maths/multiplication.html" },
+    { "title": "Fractions Generator", "image": "./../resources/images/pic03.jpg", "excerpt": "Create fraction questions suitable for introducing equivalence, addition and subtraction.", "link": "maths/fractions-generator.html" }
+  ]
+}

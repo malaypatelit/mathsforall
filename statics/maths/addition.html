@@ -37,7 +37,7 @@
 
                     <!-- Header -->
                     <header id="header">
-                        <a href="../index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+                        <a href="../index.html" class="logo"><strong>Addition</strong> Worksheets</a>
                         <ul class="icons">
                             <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
                             <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -96,15 +96,9 @@
                             <header class="major">
                                 <h2>Ante interdum</h2>
                             </header>
-                            <div class="mini-posts">
-                                <article>
-                                    <a href="#" class="image"><img src="../../resources/images/pic07.jpg" alt="" /></a>
-                                    <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
-                                </article>
+                            <div class="mini-posts" id="related-posts">
+                                <!-- related posts will be injected here from resources/data/site.json -->
                             </div>
-                            <ul class="actions">
-                                <li><a href="#" class="button">More</a></li>
-                            </ul>
                         </section>
 
                     <!-- Section -->
@@ -230,6 +224,23 @@
         <script src="../../resources/scripts/breakpoints.min.js"></script>
         <script src="../../resources/scripts/util.js"></script>
         <script src="../../resources/scripts/main.js"></script>
+
+                <script>
+                (async function(){
+                    try{
+                        const res = await fetch('../../resources/data/site.json');
+                        const data = res.ok ? await res.json() : (window.__INLINE_SITE_DATA || null);
+                        const posts = (data && data.posts) || [];
+                        const keyword = 'addition';
+                        const matches = posts.filter(p => (p.link && p.link.includes(keyword)) || (p.title && p.title.toLowerCase().includes(keyword)));
+                        const list = matches.length ? matches : posts.slice(0,2);
+                        const container = document.getElementById('related-posts');
+                        if(container){
+                            container.innerHTML = list.map(p=>`<article><a href="${p.link||'#'}" class="image"><img src="${p.image||'../../resources/images/pic07.jpg'}" alt=""/></a><p>${p.excerpt||''}</p></article>`).join('');
+                        }
+                    }catch(e){}
+                })();
+                </script>
 
     </body>
 </html>
