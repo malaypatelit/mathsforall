@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: 'Comic Sans MS', sans-serif; background: #e0f7fa; padding: 20px; text-align: center; }
+        .container { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .item { display: inline-block; margin: 10px; padding: 20px; border: 2px solid #00acc1; border-radius: 10px; cursor: pointer; transition: 0.3s; }
+        .item:hover { background: #b2ebf2; }
+        .needed { background: #c8e6c9 !important; border-color: #4caf50 !important; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>What do Living Things Need?</h1>
+        <p>Click on the items that help a puppy or a plant stay alive!</p>
+        <div class="item" onclick="this.classList.toggle('needed')">💧 Water</div>
+        <div class="item" onclick="this.classList.toggle('needed')">🍔 Food</div>
+        <div class="item" onclick="this.classList.toggle('needed')">💨 Air</div>
+        <div class="item" onclick="this.classList.toggle('needed')">🏠 Shelter</div>
+        <div class="item">📺 Video Games</div>
+        <div class="item">🍭 Candy</div>
+    </div>
+</body>
+</html>
